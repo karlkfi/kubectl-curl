@@ -22,7 +22,7 @@ $ kubectl curl api
   "serverAddressByClientCIDRs": [
     {
       "clientCIDR": "0.0.0.0/0",
-      "serverAddress": "10.212.0.2:443"
+      "serverAddress": "10.0.0.1:443"
     }
   ]
 }
