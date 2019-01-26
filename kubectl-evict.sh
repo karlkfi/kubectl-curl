@@ -53,9 +53,6 @@ fi
 
 pod_name="$1"
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
-cd "${REPO_ROOT}"
-
 if [[ -z "${namespace}" ]]; then
   current_context="$(kubectl config current-context)"
   namespace="$(kubectl config view -o jsonpath="{.contexts[?(@.name=='${current_context}')].context.namespace}")"
@@ -64,7 +61,7 @@ if [[ -z "${namespace}" ]]; then
   fi
 fi
 
-cat << EOF | scripts/kubectl-curl.sh api/v1/namespaces/${namespace}/pods/${pod_name}/eviction -H 'Content-type:application/json' -X POST -d @-
+cat << EOF | kubectl curl api/v1/namespaces/${namespace}/pods/${pod_name}/eviction -H 'Content-type:application/json' -X POST -d @-
 {
   "apiVersion": "policy/v1beta1",
   "kind": "Eviction",
