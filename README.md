@@ -38,7 +38,7 @@ See [The Eviction API](https://kubernetes.io/docs/tasks/administer-cluster/safel
 ### Evict Install
 
 ```
-sudo cp kubectl-curl.sh /usr/local/bin/kubectl-curl
+sudo cp kubectl-evict.sh /usr/local/bin/kubectl-evict
 ```
 
 ### Evict Usage
